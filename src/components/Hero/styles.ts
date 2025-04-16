@@ -12,6 +12,7 @@ export const HeroSection = styled.section`
   justify-content: center;
   position: relative;
   flex-direction: column;
+  color: ${cores.textColor};
   }
 
   a {
