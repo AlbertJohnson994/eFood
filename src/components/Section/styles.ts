@@ -3,23 +3,34 @@ import { cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 import { ButtonContainer } from '../Button/styles'
 
-interface ProductListProps {
-  background: string
-  columns?: number
-  textColor: string
-}
+export const ProductListContainer = styled.section`
+  padding: 16px;
 
-export const CardContainer = styled.div<ProductListProps>`
-  background-color: ${(props) =>
-    props.background === '#E66767' ? '#E66767' : '#eeea'};
+  h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
+`
+
+export const List = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+`
+
+export const CardContainer = styled.div`
+  background-color: ${cores.cinza};
   position: relative;
   flex-direction: column;
   border: 1px solid ${cores.secundary};
-  width: 100%;
+  width: 472px;
   height: 398px;
   display: flex;
-  color: ${(props) =>
-    props.textColor === cores.branca ? cores.primary : cores.secundary};
+  color: ${cores.secundary};
   text-decoration: none;
 
   ${TagContainer} {
@@ -36,14 +47,8 @@ export const Infos = styled.div`
   right: 16px;
   color: ${cores.secundary};
 `
-interface TituloProps {
-  background: string
-  textColor: string
-}
 
-export const Titulo = styled.h1<TituloProps>`
-  background-color: ${(props) => props.background};
-  color: ${(props) => props.textColor || cores.branca};
+export const Titulo = styled.h3`
   justify-content: space-between;
   flex-direction: row;
   letter-spacing: 0%;
@@ -52,7 +57,7 @@ export const Titulo = styled.h1<TituloProps>`
   height: 21px;
   margin: 8px;
   align-items: left;
-  font-weight: 700;
+  color: ${cores};
   padding: 0 6px;
 
   .nota {
@@ -68,21 +73,21 @@ export const Titulo = styled.h1<TituloProps>`
   }
 `
 
-export const Descricao = styled.p<ProductListProps>`
-  color: ${(props) =>
-    props.textColor === cores.primary ? cores.secundary : cores.primary};
+export const Descricao = styled.p`
   max-width: 456px;
   height: 88px;
   font-size: 14px;
   line-height: 22px;
   top: 702px;
   left: 179px;
+  color: ${cores.secundary};
   margin: 8px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 0 6px;
   margin-bottom: 16px;
+
 
   ${ButtonContainer} {
     background-color: ${cores.secundary};

@@ -1,41 +1,36 @@
 import styled from 'styled-components'
 import fundo from '../../assets/images/fundo.png'
-import apresentacao from '../../assets/images/apresentacao.png'
+import { cores } from '../../styles'
 
-export const HeaderBar = styled.header<{
-  isHome?: boolean
-  isProfile?: boolean
-}>`
+export const HeaderBar = styled.header`
   position: relative;
   width: 100%;
-  height: ${({ isHome }) => (isHome ? '300px' : '300px')};
+  height: 384px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  transition: height 0.3s ease;
-
-  /* Default background for all pages */
   background: url(${fundo}) no-repeat center center/cover;
 
-  /* Profile page background override */
-  ${({ isProfile }) =>
-    isProfile &&
-    `
-    background: url(${apresentacao}) no-repeat center center/cover;
-  `}
-
-  /* Home page specific styles */
-  ${({ isHome }) =>
-    isHome &&
-    `
-    /* Additional home page styles if needed */
-  `}
+  h1 {
+    color: ${cores.secundary};
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    width: 539px;
+    height: 84px;
+    top: 236px;
+    left: 414px;
+    padding-top: 95px;
+    z-index: 1;
+  }
 `
 
 export const IconImage = styled.img`
-  max-width: 200px;
-  height: 100%;
+  max-width: 125px;
+  height: 57px;
+  top: 40px;
+  left: 680px;
   z-index: 1;
-  position: relative;
+  position: absolute;
 `

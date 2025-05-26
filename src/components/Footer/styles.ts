@@ -6,7 +6,7 @@ export const FooterContainer = styled.footer`
   background-image: url(${fundo});
   background-size: cover;
   background-position: center;
-  color: ${cores.textColor};
+  color: ${cores.secundary};
   padding: 32px 0;
   text-align: center;
   width: 100%;

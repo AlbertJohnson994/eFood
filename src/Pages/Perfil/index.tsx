@@ -1,8 +1,9 @@
 import piza from '../../assets/images/piza.png'
 import Dishes from '../../models/Dishes'
 import { ProductList } from '../../components/ProductList'
+import { cores } from '../../styles'
 
-const pizza: Dishes[] = [
+export const pizza: Dishes[] = [
   {
     id: 1,
     category: 'Adicionar ao carrinho',
@@ -67,7 +68,13 @@ const pizza: Dishes[] = [
 
 const Perfil = () => (
   <>
-    <ProductList dish={pizza} title="Perfil" />
+    <ProductList
+      dish={pizza}
+      title="Perfil"
+      columns={3}
+      background="#E66767"
+      textColor="#FFEBD9"
+    />
   </>
 )
 export default Perfil

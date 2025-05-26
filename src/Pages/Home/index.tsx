@@ -57,7 +57,7 @@ const seaFood: Dishes[] = [
   },
   {
     id: 6,
-    category: 'Japonesa',
+    category: 'Saiba mais',
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     infos: ['Italiana'],
@@ -69,7 +69,13 @@ const seaFood: Dishes[] = [
 
 const Home = () => (
   <>
-    <ProductList dish={seaFood} title="Home" />
+    <ProductList
+      dish={seaFood}
+      title="Home"
+      columns={2}
+      background="#eeea"
+      textColor="#FFEBD9"
+    />
   </>
 )
 export default Home

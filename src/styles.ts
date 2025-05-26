@@ -4,10 +4,9 @@ export const cores = {
   branca: '#fff',
   preta: '#111',
   cinza: '#eeea',
-  verde: '#10AC84',
   cinzaClaro: '#3C524F',
-  corFundo: '##FFEBD9',
-  textColor: '#E66767',
+  primary: '#FFEBD9',
+  secundary: '#E66767',
   starColor: '#FFB930'
 }
 
@@ -21,7 +20,7 @@ export const GlobalCss = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.corFundo};
+    background-color: ${cores.primary};
     color: ${cores.branca};
     padding-top: 40px;
   }

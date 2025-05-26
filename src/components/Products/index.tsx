@@ -1,60 +1,11 @@
-// import Tag from '../Tag'
-// import { CardContainer, Descricao, Titulo, Infos, CardFooter } from './styles'
-// import { useLocation } from 'react-router-dom'
-
-// type ProductProps = {
-//   title: React.ReactNode
-//   titleText?: string
-//   description: string
-//   category: string
-//   infos: string[]
-//   image: string
-//   nota: string
-// }
-
-// const Product = ({
-//   title,
-//   titleText = '',
-//   description,
-//   category,
-//   infos,
-//   image,
-//   nota
-// }: ProductProps) => {
-//   const location = useLocation()
-//   const isProfile = location.pathname === '/perfil' // Adjust to your profile route
-
-//   return (
-//     <CardContainer isProfile={isProfile}>
-//       <img src={image} alt={titleText} />
-//       <Infos isProfile={isProfile}>
-//         {infos.map((info) => (
-//           <Tag key={info}>
-//             <span>{info}</span>
-//           </Tag>
-//         ))}
-//       </Infos>
-//       <Titulo isProfile={isProfile}>
-//         <span className="title">{title}</span>
-//         <span className="nota">{nota}</span>
-//       </Titulo>
-//       <Descricao isProfile={isProfile}>{description}</Descricao>
-//       <CardFooter isProfile={isProfile}>
-//         <Tag>
-//           <span>{category}</span>
-//         </Tag>
-//       </CardFooter>
-//     </CardContainer>
-//   )
-// }
-
-// export default Product
-
+import Button from '../Button'
 import Tag from '../Tag'
-import { CardContainer, Descricao, Titulo, Infos, CardFooter } from './styles'
-import { useLocation } from 'react-router-dom'
+import { CardContainer, Descricao, Titulo, Infos } from './styles'
 
-type ProductProps = {
+import { Link as RouterLink } from 'react-router-dom'
+
+type ProductsProps = {
+  id: number
   title: React.ReactNode
   titleText?: string
   description: string
@@ -62,41 +13,56 @@ type ProductProps = {
   infos: string[]
   image: string
   nota: string
+  background?: '#E66767' | '#eeea' | '#FFEBD9'
+  textColor?: '#E66767' | '#eeea' | '#FFEBD9'
+  isPerfil?: boolean
 }
 
-const Product = ({
+const Products = ({
   title,
   titleText = '',
   description,
   category,
   infos,
   image,
-  nota
-}: ProductProps) => {
-  const location = useLocation()
-  const isProfile = location.pathname === '/perfil' // Adjust if your route is different
-
+  nota,
+  background
+}: ProductsProps) => {
   return (
-    <CardContainer isProfile={isProfile}>
+    <CardContainer background={background || '#eeea'} textColor="#E66767">
       <img src={image} alt={titleText} />
-      <Infos isProfile={isProfile}>
+      <Infos>
         {infos.map((info) => (
           <Tag key={info}>
             <span>{info}</span>
           </Tag>
         ))}
       </Infos>
-      <Titulo isProfile={isProfile}>
+      <Titulo
+        background={background || '#eeea'}
+        textColor={background === '#FFEBD9' ? '#FFEBD9' : '#FFEBD9'}
+      >
         <span className="title">{title}</span>
         <span className="nota">{nota}</span>
       </Titulo>
-      <Descricao isProfile={isProfile}>{description}</Descricao>
-      <CardFooter isProfile={isProfile}>
-        <Tag>
-          <span>{category}</span>
-        </Tag>
-      </CardFooter>
+      <Descricao
+        background={background || '#eeea'}
+        textColor={background === '#FFEBD9' ? '#FFEBD9' : '#FFEBD9'}
+      >
+        {description}
+
+        <RouterLink to="/perfil">
+          <Button
+            type="button"
+            variant="primary"
+            title={category}
+            onClick={() => console.log('Clicked')}
+          >
+            {category}
+          </Button>
+        </RouterLink>
+      </Descricao>
     </CardContainer>
   )
 }
-export default Product
+export default Products

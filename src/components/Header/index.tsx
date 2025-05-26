@@ -1,21 +1,20 @@
 import { HeaderBar, IconImage } from './styles'
-import { Link as RouterLink, useLocation } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 import logo from '../../assets/images/logo.png'
-import Hero from '../Hero'
 
 const Header = () => {
-  const location = useLocation()
-  const isHome = location.pathname === '/'
-  const isProfile = location.pathname === '/perfil'
-
   return (
     <>
-      <HeaderBar isHome={isHome} isProfile={isProfile}>
+      <HeaderBar>
         <RouterLink to="/">
           <IconImage src={logo} alt="Logo" />
         </RouterLink>
+
+        <h1>
+          Viva experiências gastronômicas <br />
+          <span>no conforto da sua casa</span>
+        </h1>
       </HeaderBar>
-      {isHome && <Hero />} {/* Hero will only show on home page */}
     </>
   )
 }
